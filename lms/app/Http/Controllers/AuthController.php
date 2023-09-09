@@ -40,10 +40,12 @@ class AuthController extends Controller
           ->execute();
         
         //=>put user to session.
-        $putSession = $request->session()->put('microsoftUser',$userDetails);
+        $putSession = $request->session()->put('microsoftUser',$user);
+        // $getSession = $request->session()->get('microsoftUser');
+        //dd($getSession);exit;
         
         //=>return the view and place the userdetails
-        return view('welcome',compact('userDetails'));
+        return view('welcome',compact('user'));
     }
 
     //signout
